@@ -1,0 +1,64 @@
+extends ../layout/base 
+block content 
+	section.content-header 
+		h1 
+			| Add Barang
+			small it all starts here
+		ol.breadcrumb 
+			li 
+				a(href='#') 
+					i.fa.fa-dashboard
+					| Level 
+			li.active Here 
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| Barang
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+					
+			.box-body
+				form(role='form',method='post' action='/barang/add')
+					.row
+						
+						.col-xs-6
+							.box-body
+								- if (messages.msg_error) 
+									.alert.alert-danger.alert-dismissable 
+										button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Alert! 
+										| !{messages.msg_error}
+								.form-group
+									label
+										| Code
+									input(type='varchar',name='code',placeholder='Enter Code', autofocus).form-control
+								.form-group
+									label
+										| Name
+									input(type='varchar',name='name',placeholder='Enter Name', autofocus).form-control
+								.form-group
+									label
+										| Merk
+									input(type='varchar',name='merk',placeholder='Enter merk').form-control
+								.form-group
+									label
+										| Unit
+									input(type='varchar',name='unit',placeholder='Enter unit').form-control
+								.form-group
+									label
+										| Ammount
+									input(type='varchar',name='ammount',placeholder='Enter ammount').form-control
+								.form-group
+									label
+										| Price
+									input(type='varchar',name='price',placeholder='Enter price').form-control
+							.box-footer
+								button(type='submit').btn.btn-primary
+									| Submit
+								a(href='/barang').btn.btn-primary.pull-right
+									| Back
